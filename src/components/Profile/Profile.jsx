@@ -3,7 +3,7 @@ import MyPosts from "./MyPosts/MyPosts";
 
 const Profile = () => {
     return (
-        <div className={classes.content}>
+        <div>
             <div>
                 <img className={classes.main_img}
                      src="https://www.ghimprove.com/_blog/images/posts/hello-world/mountain.jpg"
