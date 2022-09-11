@@ -1,10 +1,11 @@
 import classes from './Profile.module.css';
+import MyPosts from "./MyPosts/MyPosts";
 
 const Profile = () => {
     return (
         <div className={classes.content}>
             <div>
-                <img className={classes.mainImg}
+                <img className={classes.main_img}
                      src="https://www.ghimprove.com/_blog/images/posts/hello-world/mountain.jpg"
                      alt="IMg"/>
             </div>
@@ -12,24 +13,7 @@ const Profile = () => {
                 <img className={classes.avatar} src="https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-Vector-PNG-File.png"
                      alt="Avatar"/>
             </div>
-            <div className={classes.posts}>
-                my posts
-
-                <div className={classes.item}>
-                    new post
-                </div>
-                <div>
-                    <div>
-                        post 1
-                    </div>
-                    <div>
-                        post 2
-                    </div>
-                    <div>
-                        post 3
-                    </div>
-                </div>
-            </div>
+            <MyPosts/>
         </div>
     );
 };
