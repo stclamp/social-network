@@ -1,19 +1,31 @@
 import classes from './MyPosts.module.css'
 import Post from "./Post/Post";
 
+let postsData = [
+    {
+        id: 1,
+        message: "Hi, it's my first post!",
+        likesCount: 5
+    },
+    {
+        id: 2,
+        message: "How are you?",
+        likesCount: 15
+    },
+]
+
 const MyPosts = () => {
     return (
-        <div>
-            my posts
-
+        <div className={classes.add_posts}>
+            <h3>My posts</h3>
             <div>
                 <textarea name="" id="" cols="30" rows="5"></textarea>
-                <button>Add post</button>
+                <div>
+                    <button>Add post</button>
+                </div>
             </div>
             <div className={classes.posts}>
-
-                <Post message={"Hi, it's my first post!"} likesCount = {15}/>
-                <Post message={"How are you?"} likesCount={20}/>
+                {postsData.map(post => <Post key={post.id} message={post.message} likesCount = {post.likesCount}/>)}
             </div>
         </div>
     );

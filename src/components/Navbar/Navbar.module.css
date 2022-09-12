@@ -14,3 +14,7 @@
 .item:last-child a {
     margin-top: 20px;
 }
+
+.item a.active {
+    color: gold
+}
