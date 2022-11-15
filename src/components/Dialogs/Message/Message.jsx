@@ -4,6 +4,7 @@ const Message = ({message}) => {
     return (
         <div>
             <div className={classes.message}>{message}</div>
+
         </div>
     );
 };

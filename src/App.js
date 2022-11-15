@@ -8,7 +8,8 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 
-function App({state}) {
+
+function App({state, addPost, changeNewPostValue}) {
     return (
         <BrowserRouter>
             <div className='app_wrapper'>
@@ -17,7 +18,7 @@ function App({state}) {
                 <div className='app_wrapper_content'>
                     <Routes>
                         <Route element={<Dialogs state={state.dialogs}/>} path='/dialogs/*'/>
-                        <Route element={<Profile state={state.profile}/>} path='/profile' />
+                        <Route element={<Profile profile={state.profile} changeNewPostValue={changeNewPostValue} newPostValue={state.profile.newPostValue} addPost = {addPost}/>} path='/profile' />
                         <Route element={<News/>} path='/news' />
                         <Route element={<Music/>} path='/music' />
                         <Route element={<Settings/>} path='/settings' />

@@ -1,3 +1,5 @@
+import {rerenderEntireTree} from "../render";
+
 let state = {
     profile: {
         postsData: [
@@ -11,7 +13,8 @@ let state = {
                 message: "How are you?",
                 likesCount: 15
             },
-        ]
+        ],
+        newPostValue: ''
     },
     dialogs: {
         dialogsData: [
@@ -71,6 +74,23 @@ let state = {
             }
         ]
     }
+
+}
+
+export const addPost = () => {
+    let post = {
+        id: state.profile.postsData.length + 1,
+        message: state.profile.newPostValue,
+        likesCount: 0
+    }
+    state.profile.postsData.push(post)
+    state.profile.newPostValue = ''
+    rerenderEntireTree(state);
+}
+
+export const changeNewPostValue = (value) => {
+    state.profile.newPostValue = value;
+    rerenderEntireTree(state);
 }
 
 export default state
