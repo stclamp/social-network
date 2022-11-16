@@ -2,7 +2,7 @@ import React from "react";
 import classes from './MyPosts.module.css'
 import Post from "./Post/Post";
 
-const MyPosts = ({posts, addPost, newPostValue, changeNewPostValue}) => {
+const MyPosts = ({ posts, addPost, newPostValue, changeNewPostValue }) => {
 
 
     let newPostElement = React.createRef()
@@ -25,7 +25,7 @@ const MyPosts = ({posts, addPost, newPostValue, changeNewPostValue}) => {
                 </div>
             </div>
             <div className={classes.posts}>
-                {posts.map(post => <Post key={post.id} message={post.message} likesCount = {post.likesCount}/>)}
+                {posts.map(post => <Post key={post.id} message={post.message} likesCount={post.likesCount} />)}
             </div>
         </div>
     );
