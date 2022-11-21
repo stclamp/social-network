@@ -2,11 +2,11 @@
 import MyPosts from "./MyPosts/MyPosts";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
-const Profile = ({profile, addPost, newPostValue, changeNewPostValue}) => {
+const Profile = ({ profile, dispatch, newPostValue }) => {
     return (
         <div>
-            <ProfileInfo/>
-            <MyPosts posts={profile.postsData} changeNewPostValue={changeNewPostValue} newPostValue={newPostValue} addPost={addPost}/>
+            <ProfileInfo />
+            <MyPosts posts={profile.postsData} dispatch={dispatch} newPostValue={newPostValue} />
         </div>
     );
 };

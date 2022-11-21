@@ -1,3 +1,6 @@
+const ADD_POST = 'ADD-POST';
+const CHANGE_NEW_POST_VALUE = 'CHANGE-NEW-POST-VALUE';
+
 let store = {
 
     _state: {
@@ -76,32 +79,42 @@ let store = {
         }
 
     },
-    getState() {
-        return this._state;
-    },
     _callSubscriber() {
         console.log('State Changed')
     },
 
-    addPost() {
-        let post = {
-            id: this._state.profile.postsData.length + 1,
-            message: this._state.profile.newPostValue,
-            likesCount: 0
-        }
-        this._state.profile.postsData.push(post)
-        this._state.profile.newPostValue = ''
-        this._callSubscriber(this._state);
-    },
-    changeNewPostValue(value) {
-        this._state.profile.newPostValue = value;
-        this._callSubscriber(this._state);
+    getState() {
+        return this._state;
     },
     subscribe(observer) {
         this._callSubscriber = observer;
     },
 
+    dispatch(action) {
+        if (action.type === ADD_POST) {
+            let post = {
+                id: this._state.profile.postsData.length + 1,
+                message: this._state.profile.newPostValue,
+                likesCount: 0
+            }
+            this._state.profile.postsData.push(post)
+            this._state.profile.newPostValue = ''
+            this._callSubscriber(this._state);
+        } else if (action.type === CHANGE_NEW_POST_VALUE) {
+            this._state.profile.newPostValue = action.value;
+            this._callSubscriber(this._state);
+        }
+    }
 
 }
+
+export const addPostActionCreator = () => ({
+    type: ADD_POST
+})
+
+export const changeNewPostValueActionCreator = (value) => ({
+    type: CHANGE_NEW_POST_VALUE,
+    value: value
+})
 
 export default store
