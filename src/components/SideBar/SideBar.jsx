@@ -1,7 +1,6 @@
 import classes from './SideBar.module.css'
 
 const SideBar = ({state}) => {
-
     return (
         <div className={classes.wrapper}>
             <h3 className={classes.title}>Friends</h3>
